@@ -46,17 +46,13 @@ function handleSubmit(event) {
                 return;
             }
 
+            if (data.hits.length < data.totalHits) {
+                loadMore.classList.replace("load-more-hidden", "js-load-more");
+            } else {
+                loadMore.classList.replace("js-load-more", "load-more-hidden");
+            }
             createGallery(data.hits);
 
-            const totalPages = Math.ceil(data.totalHits / 15);
-            if (page >= totalPages) {
-                iziToast.info({
-                    position: 'topRight',
-                    message: "We're sorry, but you've reached the end of search results."
-                });
-            } else {
-                loadMore.classList.replace("load-more-hidden", "js-load-more");
-            }
         })
         .catch(error => {
             iziToast.error({
@@ -68,8 +64,6 @@ function handleSubmit(event) {
         })
         .finally(() => {
             hideLoader();
-            loadMore.classList.replace("load-more-hidden", "js-load-more");
-
             searchInput.value = "";
         });
 }
