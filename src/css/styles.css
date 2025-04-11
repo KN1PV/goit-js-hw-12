@@ -30,6 +30,15 @@
   color: #808080;
 }
 
+.form input:hover {
+  border: 1px solid #000;
+}
+
+.form input:focus {
+  outline: none;
+  border: 1px solid #4e75ff;
+}
+
 .form button {
   border-radius: 8px;
   border: none;
@@ -73,12 +82,19 @@
   border: 1px solid #808080;
   width: 360px;
   height: 200px;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
 }
 
 .gallery-image {
   width: 360px;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .info {
@@ -88,7 +104,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  /* background: #fff; */
+  background-color: rgba(255, 255, 255, 0.872);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 2px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .info-item {
@@ -184,4 +203,10 @@
 
 .load-more-hidden {
   display: none;
+}
+
+@media screen and (max-width: 425px) {
+  .js-load-more {
+    margin-top: 32px;
+  }
 }
